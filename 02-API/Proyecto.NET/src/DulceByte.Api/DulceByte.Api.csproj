@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>DulceByte.Api</RootNamespace>
+    <UserSecretsId>dulcebyte-api-secrets</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DulceByte.Domain\DulceByte.Domain.csproj" />
+    <ProjectReference Include="..\DulceByte.Application\DulceByte.Application.csproj" />
+    <ProjectReference Include="..\DulceByte.Infrastructure\DulceByte.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
