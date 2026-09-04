@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo pedido | DulceByte</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            Dulce<span>Byte</span>
+        </div>
+
+        <nav class="menu">
+
+            <a th:href="@{/}">
+                <span>🏠</span>
+                <span class="text">Inicio</span>
+            </a>
+
+            <a th:href="@{/productos}">
+                <span>🧁</span>
+                <span class="text">Productos</span>
+            </a>
+
+            <a th:href="@{/categorias}">
+                <span>🗂️</span>
+                <span class="text">Categorías</span>
+            </a>
+
+            <a th:href="@{/pedidos}" class="active">
+                <span>📦</span>
+                <span class="text">Pedidos</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <main class="main">
+
+        <div class="page-header">
+            <h2>Nuevo pedido</h2>
+        </div>
+
+        <div class="card">
+
+            <form
+                class="form-grid"
+                th:object="${pedido}"
+                th:action="@{/pedidos/guardar}"
+                method="post">
+
+                <div class="form-group">
+
+                    <label>Cliente</label>
+
+                    <select
+                        th:field="*{idCliente}"
+                        required>
+
+                        <option value="">
+                            Seleccione un cliente
+                        </option>
+
+                        <option
+                            th:each="cliente : ${clientes}"
+                            th:value="${cliente.idCliente}"
+                            th:text="${cliente.nombre}">
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-actions">
+
+                    <button
+                        class="btn btn-primary"
+                        type="submit">
+                        Crear pedido
+                    </button>
+
+                    <a
+                        class="btn btn-secondary"
+                        th:href="@{/pedidos}">
+                        Cancelar
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

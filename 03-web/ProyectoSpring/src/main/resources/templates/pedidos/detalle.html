@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle pedido | DulceByte</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+
+<header>
+    <h1>☕ DulceByte</h1>
+
+    <nav>
+        <a th:href="@{/}">Inicio</a>
+        <a th:href="@{/productos}">Productos</a>
+        <a th:href="@{/categorias}">Categorías</a>
+        <a th:href="@{/pedidos}">Pedidos</a>
+    </nav>
+</header>
+
+<main>
+
+    <div class="card">
+
+        <div class="page-header">
+
+            <h2>
+                Pedido #
+                <span th:text="${pedido.idPedido}"></span>
+            </h2>
+
+            <a class="btn btn-secondary"
+               th:href="@{/pedidos}">
+                ← Volver
+            </a>
+
+        </div>
+
+        <div th:if="${mensaje}"
+             class="message message-success"
+             th:text="${mensaje}">
+        </div>
+
+        <p>
+            <strong>Cliente:</strong>
+            <span th:text="${pedido.cliente}"></span>
+        </p>
+
+        <p>
+            <strong>Estado:</strong>
+            <span class="status"
+                  th:text="${pedido.estado}">
+            </span>
+        </p>
+
+        <p class="total">
+            Total: $
+            <span th:text="${pedido.total}"></span>
+        </p>
+
+        <h3>Productos del pedido</h3>
+
+        <table>
+
+            <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio unitario</th>
+                <th>Subtotal</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <tr th:each="detalle : ${pedido.detalles}">
+
+                <td th:text="${detalle.producto}"></td>
+
+                <td th:text="${detalle.cantidad}"></td>
+
+                <td>
+                    $<span th:text="${detalle.precioUnitario}"></span>
+                </td>
+
+                <td>
+                    $<span th:text="${detalle.subtotal}"></span>
+                </td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+        <br>
+
+        <h3>Agregar producto</h3>
+
+        <form th:object="${detalleNuevo}"
+              th:action="@{/pedidos/{id}/detalle(id=${pedido.idPedido})}"
+              method="post">
+
+            <div class="form-group">
+
+                <label>Producto</label>
+
+                <select th:field="*{idProducto}" required>
+
+                    <option value="">Seleccione</option>
+
+                    <option
+                            th:each="producto : ${productos}"
+                            th:value="${producto.idProducto}"
+                            th:text="${producto.nombre}">
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Cantidad</label>
+
+                <input type="number"
+                       min="1"
+                       max="100"
+                       th:field="*{cantidad}"
+                       required>
+
+            </div>
+
+            <button class="btn btn-primary"
+                    type="submit">
+                Agregar producto
+            </button>
+
+        </form>
+
+        <br><br>
+
+        <h3>Cambiar estado</h3>
+
+        <form th:object="${estadoNuevo}"
+              th:action="@{/pedidos/{id}/estado(id=${pedido.idPedido})}"
+              method="post">
+
+            <div class="form-group">
+
+                <label>Nuevo estado</label>
+
+                <select th:field="*{idEstado}" required>
+
+                    <option value="">Seleccione</option>
+
+                    <option
+                            th:each="estado : ${estados}"
+                            th:value="${estado.idEstado}"
+                            th:text="${estado.nombre}">
+                    </option>
+
+                </select>
+
+            </div>
+
+            <button class="btn btn-success"
+                    type="submit">
+                Actualizar estado
+            </button>
+
+        </form>
+
+    </div>
+
+</main>
+
+</body>
+</html>

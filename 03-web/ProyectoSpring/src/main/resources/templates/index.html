@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio | DulceByte</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="brand">Dulce<span>Byte</span></div>
+
+        <nav class="menu">
+            <a th:href="@{/}" class="active">
+                <span>🏠</span>
+                <span class="text">Inicio</span>
+            </a>
+            <a th:href="@{/productos}">
+                <span>🧁</span>
+                <span class="text">Productos</span>
+            </a>
+            <a th:href="@{/categorias}">
+                <span>🗂️</span>
+                <span class="text">Categorías</span>
+            </a>
+            <a th:href="@{/pedidos}">
+                <span>📦</span>
+                <span class="text">Pedidos</span>
+            </a>
+        </nav>
+    </aside>
+
+    <main class="main">
+
+        <div class="page-header">
+            <h1>Panel principal</h1>
+        </div>
+
+        <div class="card">
+            <h2>Bienvenida a DulceByte</h2>
+            <p style="margin-top: 10px; color:#7a5867;">
+                Sistema web para administrar productos, categorías y pedidos
+                de la cafetería de forma rápida y ordenada.
+            </p>
+
+            <div class="stat-badges">
+                <div class="stat-badge">Gestión rápida</div>
+                <div class="stat-badge">Diseño limpio</div>
+                <div class="stat-badge">CRUD funcional</div>
+            </div>
+        </div>
+
+        <div class="summary-grid">
+            <div class="summary-card">
+                <h4>Productos activos</h4>
+                <div class="number">4</div>
+            </div>
+
+            <div class="summary-card">
+                <h4>Categorías</h4>
+                <div class="number">2</div>
+            </div>
+
+            <div class="summary-card">
+                <h4>Pedidos</h4>
+                <div class="number">4</div>
+            </div>
+
+            <div class="summary-card">
+                <h4>Estado destacado</h4>
+                <div class="number" style="font-size:20px;">Listo</div>
+            </div>
+        </div>
+
+        <div class="quick-grid">
+            <div class="quick-card">
+                <h3>Productos</h3>
+                <p>Administra los productos disponibles del negocio.</p>
+                <a class="btn btn-primary" th:href="@{/productos}">Gestionar</a>
+            </div>
+
+            <div class="quick-card">
+                <h3>Categorías</h3>
+                <p>Organiza productos y mantén su clasificación actualizada.</p>
+                <a class="btn btn-secondary" th:href="@{/categorias}">Gestionar</a>
+            </div>
+
+            <div class="quick-card">
+                <h3>Pedidos</h3>
+                <p>Consulta pedidos, productos agregados y estado de entrega.</p>
+                <a class="btn btn-dark" th:href="@{/pedidos}">Gestionar</a>
+            </div>
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

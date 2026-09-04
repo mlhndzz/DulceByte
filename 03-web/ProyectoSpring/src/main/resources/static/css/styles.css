@@ -1,0 +1,380 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #FFF9EC;
+    color: #5D2A42;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ========== LAYOUT ========== */
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background: #5D2A42;
+    color: white;
+    padding: 28px 18px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    box-shadow: 4px 0 18px rgba(0, 0, 0, 0.08);
+}
+
+.brand {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #FFF9EC;
+}
+
+.brand span {
+    color: #FB6376;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu a {
+    color: #FFF9EC;
+    padding: 14px 16px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.2s ease;
+    font-size: 15px;
+}
+
+.menu a:hover,
+.menu a.active {
+    background: #FB6376;
+    color: white;
+}
+
+.main {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 32px;
+}
+
+/* ========== HEADER INTERNO ========== */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.page-header h1,
+.page-header h2 {
+    color: #5D2A42;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+/* ========== CARDS / GLOBOS ========== */
+.card {
+    background: #ffffff;
+    border: 1px solid #f3dfd6;
+    border-radius: 22px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(93, 42, 66, 0.08);
+    margin-bottom: 24px;
+}
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.quick-card {
+    background: #fff;
+    border: 1px solid #f3dfd6;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(93, 42, 66, 0.07);
+}
+
+.quick-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #5D2A42;
+}
+
+.quick-card p {
+    color: #7a5867;
+    font-size: 14px;
+    margin-bottom: 14px;
+    line-height: 1.5;
+}
+
+.stat-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 12px;
+}
+
+.stat-badge {
+    background: #FFDCCC;
+    color: #5D2A42;
+    padding: 12px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #f3c9ba;
+}
+
+/* ========== BOTONES ========== */
+.btn {
+    display: inline-block;
+    padding: 11px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-primary {
+    background: #FB6376;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #ef566a;
+}
+
+.btn-secondary {
+    background: #FFDCCC;
+    color: #5D2A42;
+}
+
+.btn-secondary:hover {
+    background: #f7cfbf;
+}
+
+.btn-dark {
+    background: #5D2A42;
+    color: white;
+}
+
+.btn-dark:hover {
+    background: #4b2035;
+}
+
+.btn-success {
+    background: #FCB1A6;
+    color: #5D2A42;
+}
+
+.btn-success:hover {
+    background: #f3a295;
+}
+
+/* ========== MENSAJES ========== */
+.message {
+    padding: 14px 18px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.message-success {
+    background: #ffe3db;
+    color: #7a2e45;
+    border: 1px solid #f5c3b8;
+}
+
+.message-error {
+    background: #ffe6e6;
+    color: #a03045;
+    border: 1px solid #f0b7b7;
+}
+
+/* ========== TABLAS ========== */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+thead {
+    background: #5D2A42;
+    color: white;
+}
+
+th {
+    text-align: left;
+    padding: 14px 16px;
+    font-size: 14px;
+}
+
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f3e3dc;
+    font-size: 14px;
+    color: #5D2A42;
+}
+
+tbody tr:hover {
+    background: #fff6f2;
+}
+
+/* ========== FORMULARIOS ========== */
+.form-grid {
+    display: grid;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #5D2A42;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #e9cfc4;
+    background: white;
+    font-size: 14px;
+    color: #5D2A42;
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #FB6376;
+    box-shadow: 0 0 0 3px rgba(251, 99, 118, 0.15);
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+/* ========== ESTADOS ========== */
+.status {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.status-pendiente {
+    background: #ffe7bf;
+    color: #8a5a00;
+}
+
+.status-proceso {
+    background: #ffdccc;
+    color: #8b4d3d;
+}
+
+.status-listo {
+    background: #e1f6e8;
+    color: #226c3a;
+}
+
+.status-entregado {
+    background: #f3d5df;
+    color: #7a2945;
+}
+
+/* ========== MINI RESUMEN ========== */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.summary-card {
+    background: #ffffff;
+    border: 1px solid #f0dbd1;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 8px 20px rgba(93, 42, 66, 0.06);
+}
+
+.summary-card h4 {
+    color: #7a5867;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.summary-card .number {
+    font-size: 28px;
+    font-weight: 700;
+    color: #5D2A42;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+    .sidebar {
+        width: 88px;
+        padding: 24px 10px;
+    }
+
+    .brand {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .brand span,
+    .menu a span.text {
+        display: none;
+    }
+
+    .menu a {
+        justify-content: center;
+        padding: 14px;
+    }
+
+    .main {
+        margin-left: 88px;
+        width: calc(100% - 88px);
+        padding: 20px;
+    }
+}

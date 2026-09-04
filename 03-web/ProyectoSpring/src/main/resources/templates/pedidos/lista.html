@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pedidos | DulceByte</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            Dulce<span>Byte</span>
+        </div>
+
+        <nav class="menu">
+
+            <a th:href="@{/}">
+                <span>🏠</span>
+                <span class="text">Inicio</span>
+            </a>
+
+            <a th:href="@{/productos}">
+                <span>🧁</span>
+                <span class="text">Productos</span>
+            </a>
+
+            <a th:href="@{/categorias}">
+                <span>📁</span>
+                <span class="text">Categorías</span>
+            </a>
+
+            <a th:href="@{/pedidos}" class="active">
+                <span>📦</span>
+                <span class="text">Pedidos</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <main class="main">
+
+        <div class="page-header">
+
+            <h2>Pedidos</h2>
+
+            <a class="btn btn-primary"
+               th:href="@{/pedidos/nuevo}">
+                + Nuevo pedido
+            </a>
+
+        </div>
+
+        <div th:if="${mensaje}"
+             class="message message-success"
+             th:text="${mensaje}">
+        </div>
+
+        <div class="card">
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                    <tr>
+                        <th>Pedido</th>
+                        <th>Fecha</th>
+                        <th>Cliente</th>
+                        <th>Estado</th>
+                        <th>Total</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    <tr th:each="pedido : ${pedidos}">
+
+                        <td>
+                            #<span th:text="${pedido.idPedido}"></span>
+                        </td>
+
+                        <td th:text="${pedido.fecha}"></td>
+
+                        <td th:text="${pedido.cliente}"></td>
+
+                        <td>
+                            <span class="status"
+                                  th:text="${pedido.estado}">
+                            </span>
+                        </td>
+
+                        <td>
+                            $<span th:text="${pedido.total}"></span>
+                        </td>
+
+                        <td>
+
+                            <a class="btn btn-secondary"
+                               th:href="@{/pedidos/{id}(id=${pedido.idPedido})}">
+                                Ver pedido
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>
